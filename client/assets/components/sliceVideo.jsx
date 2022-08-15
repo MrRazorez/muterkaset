@@ -7,7 +7,7 @@ export const sliceVideo = createSlice({
   },
   reducers: {
     download: (state, pointer) => {
-      state.value = 'http://192.168.236.91:3000/videos/'+pointer.payload+'.mp4'
+      state.value = 'urlHost/videos/'+pointer.payload+'.mp4'
     },
   },
 })

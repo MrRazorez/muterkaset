@@ -1,9 +1,14 @@
 {
   "development": {
-    "username": "root",
-    "password": "Qwerty123#",
+    "username": "username",
+    "password": "password",
     "database": "muterkaset",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "host",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": true
+      }
+    }
   }
 }

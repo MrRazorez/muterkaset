@@ -39,7 +39,7 @@ export const List = () => {
 
     const getData = async () => {
         try {
-            const res = await axios.get('http://192.168.236.91:3000/list');
+            const res = await axios.get('urlHost/list');
             setDataAPI(res.data.data);
         }catch{
             setDataAPI([{
