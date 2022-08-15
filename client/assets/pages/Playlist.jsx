@@ -1,25 +1,26 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
+import * as Bulma from '@jrobins/bulma-native';
 
 export const List = ({navigation}) => {
     return (
-        <View style={styles.container}>
-            <Text>
-                Playlist
-            </Text>
-            <Button
-                title='Media Player'
-                onPress={() => navigation.navigate('Media')}
-            />
+        <View style={{}}>
+            <Bulma.Box
+                onTouchStart={() => navigation.navigate('Media')}
+                style={{
+                    margin: 20,
+                    backgroundColor: 'dodgerblue',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+                <Bulma.Text style={{
+                    color: '#FFFFFF',
+                    flex: 1
+                }}>
+                    Artis - Judul
+                </Bulma.Text>
+            </Bulma.Box>
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });

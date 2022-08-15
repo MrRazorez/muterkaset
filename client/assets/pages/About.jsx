@@ -1,21 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
+import * as Bulma from '@jrobins/bulma-native';
 
 export const About = () => {
     return (
-        <View style={styles.container}>
-            <Text>
-                About
-            </Text>
+        <View style={{flex: 1,alignItems: 'center', justifyContent: 'center'}}>
+        <Bulma.Message header="About" isOpen color='link'>
+            <Bulma.Text>
+                MuterKaset Mobile by GHOST
+            </Bulma.Text>
+        </Bulma.Message>
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
