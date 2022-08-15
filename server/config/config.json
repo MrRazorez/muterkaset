@@ -1,5 +1,6 @@
 {
   "development": {
+    "use_env_variable": null,
     "username": "username",
     "password": "password",
     "database": "muterkaset",
