@@ -5,6 +5,7 @@
     "database": "muterkaset",
     "host": "host",
     "dialect": "dialect",
+    "storage": "storage",
     "dialectOptions": {
       "ssl": {
         "rejectUnauthorized": true
