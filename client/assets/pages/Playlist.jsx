@@ -1,26 +1,66 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import * as axios from 'axios';
 import * as Bulma from '@jrobins/bulma-native';
+import { download } from '../components/sliceVideo';
 
-export const List = ({navigation}) => {
+const Item = ({pointer, title}) => {
+    const navigation = useNavigation();
+    const dispatch = useDispatch();
     return (
-        <View style={{}}>
-            <Bulma.Box
-                onTouchStart={() => navigation.navigate('Media')}
-                style={{
-                    margin: 20,
-                    backgroundColor: 'dodgerblue',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                <Bulma.Text style={{
-                    color: '#FFFFFF',
-                    flex: 1
-                }}>
-                    Artis - Judul
-                </Bulma.Text>
-            </Bulma.Box>
+        <Bulma.Button
+            onPress={() => {
+                dispatch(download(pointer));
+                navigation.navigate('Media');
+            }}
+            style={{
+                margin: 20,
+                backgroundColor: 'dodgerblue',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}
+        >
+            <Bulma.Text style={{
+                color: '#FFFFFF',
+                flex: 1,
+                fontSize: 20
+            }}>
+                {title}
+            </Bulma.Text>
+        </Bulma.Button>
+    )
+}
+
+export const List = () => {
+    const [dataAPI, setDataAPI] = useState([]);
+
+    const getData = async () => {
+        try {
+            const res = await axios.get('http://192.168.236.91:3000/list');
+            setDataAPI(res.data.data);
+        }catch{
+            setDataAPI([{
+                data: 'Server Down'
+            }]);
+        }
+    }
+
+    useEffect(() => {getData()}, []);
+
+    return (
+        <View>
+            <ScrollView>
+                {
+                    dataAPI.map(item => (
+                        <View key={item.id}>
+                            <Item pointer={item.id} title={item.judul}/>
+                        </View>
+                    ))
+                }
+            </ScrollView>
         </View>
     )
 }

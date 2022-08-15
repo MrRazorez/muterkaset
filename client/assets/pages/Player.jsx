@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Dimensions, View, StyleSheet } from 'react-native';
 import { Video } from 'expo-av';
+import { useSelector } from 'react-redux';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
 export function Player() {
@@ -12,21 +13,25 @@ export function Player() {
         }
     }
 
+    const urlVideos = useSelector((state) => state.urlVideos.value);
+
     const video = React.useRef(null);
-    const [status, setStatus] = React.useState({});
+
+    console.log(urlVideos);
+
     return (
-        <View style={styles.container}>
-            <Video
-                ref={video}
-                style={styles.video}
-                source={{
-                    uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
-                }}
-            useNativeControls
-            resizeMode="contain"
-            onFullscreenUpdate={setOrientation}
+      <View style={styles.container}>
+        <Video
+          ref={video}
+          style={styles.video}
+          source={{
+            uri: urlVideos,
+          }}
+          useNativeControls
+          resizeMode="contain"
+          onFullscreenUpdate={setOrientation}
         />
-        </View>
+      </View>
   );
 }
 
