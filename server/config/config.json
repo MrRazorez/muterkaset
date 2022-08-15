@@ -4,7 +4,7 @@
     "password": "password",
     "database": "muterkaset",
     "host": "host",
-    "dialect": "mysql",
+    "dialect": "dialect",
     "dialectOptions": {
       "ssl": {
         "rejectUnauthorized": true
