@@ -1,0 +1,15 @@
+{
+  "development": {
+    "use_env_variable": null,
+    "username": "htaeahqesr3r",
+    "password": "pscale_pw_qDXUEzvLW7UGb7L5krDm_iUO2pqCySVTgas3q5Cn6os",
+    "database": "muterkaset",
+    "host": "g45kb84w2nk7.us-east-3.psdb.cloud",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": true
+      }
+    }
+  }
+}
